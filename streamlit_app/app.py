@@ -12,9 +12,9 @@ import streamlit as st
 model_url = "https://drive.google.com/uc?id=1F3CBhna3a1y12JBtghrEWud4_bVJO8Kj"
 model_path = "denseNet_v4.h5"
 ### Image folder path and class names
-image_folder_path="https://drive.google.com/drive/folders/15eyz7Dyj3AddSQlXNLUu_tuvPiJZT5K3"
 class_name=['CaS', 'CoS', 'Gum', 'MC', 'OC', 'OLP', 'OT']
 # Google Drive file IDs for each image
+image_folder_path="https://drive.google.com/drive/folders/15eyz7Dyj3AddSQlXNLUu_tuvPiJZT5K3"
 image_urls = {
     'CaS': '1q5Q5LcaAw3DNmRICS0Tx_tcjQaZAgbwN',
     'CoS': '1iktWqTizvTOAC083y_iORVvcFp3v9BM1',
@@ -58,7 +58,7 @@ def download_images():
 
 # Initialize model and images
 model = get_model()
-download_images()
+#download_images()
 
 # predict the class of the image Function
 def predict(uploaded_file):
@@ -81,12 +81,12 @@ Simply upload a dental image, and let the model analyze and predict the conditio
 st.subheader("Visual Examples: 7 Tooth Condition Categories")
 st.caption("Below are sample images from each of the seven classes used in our model.")
 
-cols = st.columns(3)
+# cols = st.columns(3)
 
-for index, (key, value) in enumerate(image_paths.items()):
-    col = cols[index % 3]
-    with col:
-        st.image(value, caption=key, width=150)
+# for index, (key, value) in enumerate(image_paths.items()):
+#     col = cols[index % 3]
+#     with col:
+#         st.image(value, caption=key, width=150)
        
        
 uploaded_file = st.file_uploader("Upload a dental image for classification", type=["jpg", "jpeg", "png"])

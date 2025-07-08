@@ -33,7 +33,7 @@ image_paths = {
 os.makedirs('images', exist_ok=True)
 
 ## Caching the model download and load process
-@st.cache_resource(ttl=24*3600)  # Cache for 24 hours
+@st.cache_data(ttl=24*3600, hash_funcs={dict: lambda _: None})
 def get_model():
     
     """Downloads and loads model with caching"""
@@ -47,6 +47,7 @@ def get_model():
         return load_model(model_path)
     
 # Download images
+
 def download_images():
     """Downloads example images if they don't exist"""
     for key, file_id in image_urls.items():
@@ -58,7 +59,7 @@ def download_images():
 
 # Initialize model and images
 model = get_model()
-#download_images()
+download_images()
 
 # predict the class of the image Function
 def predict(uploaded_file):
@@ -78,15 +79,15 @@ Using deep learning and a custom-trained Convolutional Neural Network (CNN), thi
 
 Simply upload a dental image, and let the model analyze and predict the condition  helping streamline dental diagnostics with AI support.
 """)
-# st.subheader("Visual Examples: 7 Tooth Condition Categories")
-# st.caption("Below are sample images from each of the seven classes used in our model.")
+st.subheader("Visual Examples: 7 Tooth Condition Categories")
+st.caption("Below are sample images from each of the seven classes used in our model.")
 
-# cols = st.columns(3)
+cols = st.columns(3)
 
-# for index, (key, value) in enumerate(image_paths.items()):
-#     col = cols[index % 3]
-#     with col:
-#         st.image(value, caption=key, width=150)
+for index, (key, value) in enumerate(image_paths.items()):
+    col = cols[index % 3]
+    with col:
+        st.image(value, caption=key, width=150)
        
 st.subheader("Upload Your Dental Image")       
 uploaded_file = st.file_uploader("Upload a dental image for classification", type=["jpg", "jpeg", "png"])

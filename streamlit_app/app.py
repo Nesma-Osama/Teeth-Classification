@@ -46,8 +46,7 @@ def get_model():
     with st.spinner("Loading model..."):
         return load_model(model_path)
     
-# Download images with caching
-@st.cache_data(ttl=24*3600)
+# Download images
 def download_images():
     """Downloads example images if they don't exist"""
     for key, file_id in image_urls.items():

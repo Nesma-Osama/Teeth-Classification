@@ -5,7 +5,7 @@ This project focuses on classifying dental images into 7 distinct categories usi
 - A custom-built **Convolutional Neural Network (CNN)**
 - A **pretrained DenseNet169 model** fine-tuned on the dataset
 
-The model is deployed via a user-friendly [Streamlit](https://streamlit.io) app where users can upload dental images for real-time classification.
+The model is deployed via a user-friendly [Streamlit_app link](https://nesma-osama-teeth-classification-streamlit-appapp-yza35y.streamlit.app/) app where users can upload dental images for real-time classification.
 
 ---
 ## 🔍 Model Overview

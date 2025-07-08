@@ -88,7 +88,7 @@ Simply upload a dental image, and let the model analyze and predict the conditio
 #     with col:
 #         st.image(value, caption=key, width=150)
        
-       
+st.subheader("Upload Your Dental Image")       
 uploaded_file = st.file_uploader("Upload a dental image for classification", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     st.image(uploaded_file, caption="Uploaded Image",   width=200)

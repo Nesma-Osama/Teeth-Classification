@@ -1,6 +1,7 @@
 from tensorflow.keras.applications.densenet import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
+import os
 from PIL import Image
 import numpy as np
 import tensorflow as tf
@@ -16,8 +17,7 @@ images={
     'OLP': 'images/p_1200.jpg',
     'OT': 'images/ot_1200.jpg'    
 }
-
-model = load_model('model/denseNet_v4.h5')
+model = load_model('denseNet_v4.h5')
 # predict the class of the image Function
 def predict(uploaded_file):
     image = Image.open(uploaded_file).resize((224, 224))

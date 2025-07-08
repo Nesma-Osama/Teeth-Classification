@@ -3,9 +3,13 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 from PIL import Image
 import numpy as np
+import os
+import gdown
 import tensorflow as tf
 import streamlit as st
 # App setups
+model_url = "https://drive.google.com/uc?id=1F3CBhna3a1y12JBtghrEWud4_bVJO8Kj"
+MODEL_PATH = "denseNet_v4.h5"
 class_name=['CaS', 'CoS', 'Gum', 'MC', 'OC', 'OLP', 'OT']
 images={
     'CaS': 'images/a_100_0_1462.jpg',   
@@ -16,7 +20,13 @@ images={
     'OLP': 'images/p_1200.jpg',
     'OT': 'images/ot_1200.jpg'    
 }
-model = load_model('denseNet_v4.h5')
+## load model
+if not os.path.exists(MODEL_PATH):
+    gdown.download(model_url, MODEL_PATH)  
+
+# 2. Load into Keras
+model = load_model(MODEL_PATH) 
+
 # predict the class of the image Function
 def predict(uploaded_file):
     image = Image.open(uploaded_file).resize((224, 224))

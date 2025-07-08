@@ -78,8 +78,8 @@ Using deep learning and a custom-trained Convolutional Neural Network (CNN), thi
 
 Simply upload a dental image, and let the model analyze and predict the condition  helping streamline dental diagnostics with AI support.
 """)
-st.subheader("Visual Examples: 7 Tooth Condition Categories")
-st.caption("Below are sample images from each of the seven classes used in our model.")
+# st.subheader("Visual Examples: 7 Tooth Condition Categories")
+# st.caption("Below are sample images from each of the seven classes used in our model.")
 
 # cols = st.columns(3)
 
